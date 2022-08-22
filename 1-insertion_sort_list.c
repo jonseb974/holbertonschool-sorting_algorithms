@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
  * swap - swap the nodes
@@ -30,18 +31,23 @@ void insertion_sort_list(listint_t **list)
 	listint_t *i, *j;
 
 	if (!list || !*list || !(*list)->next)
-		return (NULL);
+		return;
 	i = (*list)->next;
 	while (i)
 	{
-		if (j->prev->n > j->n)
+		j = i;
+		i = i->next;
+		while (j && j->prev)
 		{
-			swap(j->prev, j);
-			if (!j->prev)
-				*list = j;
-			printf((const listint_t *) *list);
+			if (j->prev->n > j->n)
+			{
+				swap(j->prev, j);
+				if (!j->prev)
+					*list = j;
+				print_list((const listint_t *) *list);
+			}
+			else
+				j = j->prev;
 		}
-		else
-			j = j->prev;
 	}
 }
