@@ -2,48 +2,42 @@
 #include <stdlib.h>
 #include "sort.h"
 
+
 /**
  * selection_sort - sorts an array of integers in ascending
  * order using the Selection sort algorithm
- * @array: pointer
- * @size: number
- *
+ * @array: pointer.
+ * @size: size
  * Return: array in ascendig order
  */
 
 void selection_sort(int *array, size_t size)
 {
-	size = 0;
+	unsigned int i, j = 0;
 
-	for (int i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
 		size = i;
 
-		for (int j = i + 1; j < size; j++)
+		for (j = i + 1; j < size; j++)
 		{
-			if (array[size] > array[j])
-			{
-				size = j;
-			}
-		} if (i != size)
-		{
-			swap (array, i, size);
+			if (array[i] > array[j])
+			swap(&array[i], &array[j]);
 		}
 	}
-
 }
 
 /**
  * swap - swap data in new list
- * @arr: empty list
- * @one: data
- * @two: data
+ * @one: data unsorted_list
+ * @two: data sorted_list
  *
- * Return: order list of data
+ * Return: ascended list of data
  */
-void swap(int arr[], int one, int two)
+void swap(int *one, int *two)
 {
-	int tmp = arr[one];
-	arr[one] = arr[two];
-	arr[two] = tmp;
+	int tmp = *one;
+
+	*one = *two;
+	*two = tmp;
 }
