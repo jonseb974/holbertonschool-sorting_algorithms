@@ -11,32 +11,27 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	unsigned int step, i = 0;
+	size_t i, j, min_idx;
+	int tmp;
 
-	for (step = 0; step < size; step++)
+	if (!array || !size)
+		return;
+	for (i = 0; i < size - 1; i++)
 	{
-		int min_idx = step;
 
-		for (i = step + 1; i < size; i++)
+		for (j = size - 1, min_idx = i + 1; j > i; j--)
 		{
-			if (array[i] < array[min_idx])
-				min_idx = i;
+			if (array[j] < array[min_idx])
+			{
+				min_idx = j;
+			}
 		}
-		swap(&array[min_idx], &array[step]);
+		if (array[i] > array[min_idx])
+		{
+			tmp = array[i];
+			array[i] = array[min_idx];
+			array[min_idx] = tmp;
+			print_array(array, size);
+		}
 	}
-}
-
-/**
- * swap - swap data in new list
- * @one: data unsorted_list
- * @two: data sorted_list
- *
- * Return: data swaptted
- */
-void swap(int *one, int *two)
-{
-	int tmp = *one;
-
-	*one = *two;
-	*two = tmp;
 }
