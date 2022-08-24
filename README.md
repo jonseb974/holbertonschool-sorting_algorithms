@@ -404,7 +404,7 @@ alex@/tmp/sort$
 
 ## Authors✒️
 
-* **Khadi Thiam** - [Thiam] 😊 (5144@holbertonstudents.com)
+* **Khady Thiam** - [Thiam] 😊 (5144@holbertonstudents.com)
 
 * **Sébastien Jonad** - [JONAD] 🤓 (5151@holbertonstudents.com)🍺
 
